@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/img_logo_main"
+        android:layout_width="192dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_large"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="80dp"
+        />
+    <Button
+        android:id="@+id/btn_add_drop"
+        android:text="@string/str_add_drop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_logo_main"
+        android:layout_centerHorizontal="true"
+        android:textSize="40dp"
+        android:textAllCaps="false"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        />
+
+</RelativeLayout>
