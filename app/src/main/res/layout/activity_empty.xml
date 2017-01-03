@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="80dp"
         />
+
     <Button
         android:id="@+id/btn_add_drop"
         android:background="@drawable/bg_btn_add_drop"
