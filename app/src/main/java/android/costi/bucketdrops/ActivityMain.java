@@ -1,5 +1,6 @@
 package android.costi.bucketdrops;
 
+import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,15 +27,22 @@ public class ActivityMain extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ActivityMain.this, "Buttonul a fost apasat", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ActivityMain.this, "Buttonul a fost apasat", Toast.LENGTH_SHORT).show();
+                showDialogAdd();
             }
         });
+    }
+
+    private void showDialogAdd() {
+        DialogFragment dialogAddFragment=new DialogAddDrop();
+        dialogAddFragment.show(getFragmentManager(),"Add");
     }
 
     private void initBackgroundImage() {
         ImageView background=(ImageView) findViewById(R.id.iv_background);
         Glide.with(this)
                 .load(R.drawable.background)
+                .centerCrop()
                 .into(background);
     }
 }
