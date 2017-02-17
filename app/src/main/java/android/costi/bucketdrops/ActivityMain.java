@@ -3,6 +3,7 @@ package android.costi.bucketdrops;
 import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ public class ActivityMain extends AppCompatActivity {
 
     Toolbar mainToolbar;
     Button addButton;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,9 @@ public class ActivityMain extends AppCompatActivity {
                 showDialogAdd();
             }
         });
+        recyclerView= (RecyclerView) findViewById(R.id.rv_drop);
+
+
     }
 
     private void showDialogAdd() {
