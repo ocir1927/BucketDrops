@@ -40,10 +40,10 @@
         android:id="@+id/date_picker"
         android:layout_width="match_parent"
         android:layout_height="350sp"
-        android:layout_below="@+id/et_add_drop"
-        ></DatePicker>
+        android:layout_below="@+id/et_add_drop" />
 
     <Button
+        android:id="@+id/btn_add_it"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/date_picker"

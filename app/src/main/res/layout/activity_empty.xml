@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/img_logo_main"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textAllCaps="false"
         android:fontFamily="cursive"
         android:textStyle="bold"
