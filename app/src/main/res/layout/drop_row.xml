@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="22sp"
+    android:background="@drawable/bg_row_drop"
     >
 
     <ImageView
