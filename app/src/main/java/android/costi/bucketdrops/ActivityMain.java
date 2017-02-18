@@ -1,8 +1,10 @@
 package android.costi.bucketdrops;
 
 import android.app.DialogFragment;
+import android.costi.bucketdrops.Adapter.AdapterDrops;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -34,6 +36,10 @@ public class ActivityMain extends AppCompatActivity {
             }
         });
         recyclerView= (RecyclerView) findViewById(R.id.rv_drop);
+
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(new AdapterDrops(this));
 
 
     }

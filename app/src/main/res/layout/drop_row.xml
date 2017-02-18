@@ -8,12 +8,14 @@
     >
 
     <ImageView
+        android:id="@+id/iv_drop"
         android:layout_width="12sp"
         android:layout_height="12sp"
         android:src="@drawable/ic_drop"
         android:background="@null"
         />
     <TextView
+        android:id="@+id/tv_what"
         android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -21,6 +23,7 @@
         android:paddingRight="22sp"
         />
     <TextView
+        android:id="@+id/tv_when"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
