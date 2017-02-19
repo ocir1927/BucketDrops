@@ -33,7 +33,6 @@ public class DialogAddDrop extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Realm.init(getContext());
         return inflater.inflate(R.layout.add_a_drop,container,false);
     }
 
@@ -55,8 +54,8 @@ public class DialogAddDrop extends DialogFragment {
                 new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                System.out.println("btn clicked");
                 addDrop();
+                dismiss();
             }
 
         });
@@ -67,8 +66,7 @@ public class DialogAddDrop extends DialogFragment {
         long now=System.currentTimeMillis();
         Drop drop=new Drop(what,now,0,false);
 
-        RealmConfiguration config = new RealmConfiguration.Builder().build();
-        Realm.setDefaultConfiguration(config);
+
         Realm realm=Realm.getDefaultInstance();
 
         realm.beginTransaction();
