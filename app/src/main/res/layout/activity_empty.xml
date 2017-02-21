@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/img_logo_main"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp"
+        android:textSize="@dimen/btn_add_txt_size"
         android:textAllCaps="false"
         android:fontFamily="cursive"
         android:textStyle="bold"

@@ -12,10 +12,10 @@
         android:layout_height="match_parent" />
 
 
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
+
 
     <android.costi.bucketdrops.BucketRecyclerView
         android:id="@+id/rv_drop"
@@ -27,4 +27,6 @@
     <include
         android:id="@+id/empty_view"
         layout="@layout/activity_empty" />
+
+
 </RelativeLayout>
