@@ -23,10 +23,11 @@ public class ActivityMain extends AppCompatActivity {
 
     Toolbar mainToolbar;
     Button addButton;
-    RecyclerView recyclerView;
+    BucketRecyclerView recyclerView;
     Realm realm;
     RealmResults<Drop> realmResults;
     AdapterDrops mAdapter;
+    View emptyView;
 
     private RealmChangeListener realmChangeListener=new RealmChangeListener() {
         @Override
@@ -55,12 +56,17 @@ public class ActivityMain extends AppCompatActivity {
             }
         });
 
-        recyclerView= (RecyclerView) findViewById(R.id.rv_drop);
+
+        recyclerView= (BucketRecyclerView) findViewById(R.id.rv_drop);
+
+        emptyView=findViewById(R.id.empty_view);
+        recyclerView.hideIfEmpty(mainToolbar);
+        recyclerView.showIfEmpty(emptyView);
+
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         mAdapter=new AdapterDrops(this,realmResults);
         recyclerView.setAdapter(mAdapter);
-
 
     }
 
