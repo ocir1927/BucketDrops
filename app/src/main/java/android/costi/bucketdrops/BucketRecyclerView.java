@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.lang.reflect.Array;
@@ -56,7 +57,8 @@ public class BucketRecyclerView extends RecyclerView {
 
     private void toggleViews() {
         if (getAdapter() != null && !emptyViews.isEmpty() && !nonEmptyViews.isEmpty()) {
-            if (getAdapter().getItemCount() == 0) {
+            System.out.println(getAdapter().getItemCount());
+            if (getAdapter().getItemCount() <= 1) {
 
                 //recycler view should be not visible
                 setVisibility(View.GONE);
@@ -110,10 +112,10 @@ public class BucketRecyclerView extends RecyclerView {
     }
 
     public void hideIfEmpty(View... views) {
-        emptyViews = Arrays.asList(views);
+        nonEmptyViews = Arrays.asList(views);
     }
 
     public void showIfEmpty(View... views) {
-        nonEmptyViews = Arrays.asList(views);
+        emptyViews = Arrays.asList(views);
     }
 }

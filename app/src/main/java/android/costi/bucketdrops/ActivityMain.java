@@ -2,6 +2,7 @@ package android.costi.bucketdrops;
 
 import android.app.DialogFragment;
 import android.costi.bucketdrops.Adapter.AdapterDrops;
+import android.costi.bucketdrops.Adapter.Divider;
 import android.costi.bucketdrops.domain.Drop;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class ActivityMain extends AppCompatActivity {
     AdapterDrops mAdapter;
     View emptyView;
 
-    private RealmChangeListener realmChangeListener=new RealmChangeListener() {
+    private RealmChangeListener realmChangeListener = new RealmChangeListener() {
         @Override
         public void onChange(Object element) {
             mAdapter.update(realmResults);
@@ -41,14 +42,14 @@ public class ActivityMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainToolbar=(Toolbar) findViewById(R.id.toolbar);
+        mainToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
         initBackgroundImage();
 
-        realm=Realm.getDefaultInstance();
-        realmResults=realm.where(Drop.class).findAll();
+        realm = Realm.getDefaultInstance();
+        realmResults = realm.where(Drop.class).findAll();
 
-        addButton= (Button) findViewById(R.id.btn_add_drop);
+        addButton = (Button) findViewById(R.id.btn_add_drop);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,15 +58,17 @@ public class ActivityMain extends AppCompatActivity {
         });
 
 
-        recyclerView= (BucketRecyclerView) findViewById(R.id.rv_drop);
+        recyclerView = (BucketRecyclerView) findViewById(R.id.rv_drop);
 
-        emptyView=findViewById(R.id.empty_view);
+        recyclerView.addItemDecoration(new Divider(this, LinearLayoutManager.VERTICAL));
+
+        emptyView = findViewById(R.id.empty_view);
         recyclerView.hideIfEmpty(mainToolbar);
         recyclerView.showIfEmpty(emptyView);
 
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        mAdapter=new AdapterDrops(this,realmResults);
+        mAdapter = new AdapterDrops(this, realmResults);
         recyclerView.setAdapter(mAdapter);
 
     }
@@ -83,12 +86,12 @@ public class ActivityMain extends AppCompatActivity {
     }
 
     private void showDialogAdd() {
-        DialogFragment dialogAddFragment=new DialogAddDrop();
-        dialogAddFragment.show(getFragmentManager(),"Add");
+        DialogFragment dialogAddFragment = new DialogAddDrop();
+        dialogAddFragment.show(getFragmentManager(), "Add");
     }
 
     private void initBackgroundImage() {
-        ImageView background=(ImageView) findViewById(R.id.iv_background);
+        ImageView background = (ImageView) findViewById(R.id.iv_background);
         Glide.with(this)
                 .load(R.drawable.background)
                 .centerCrop()
